@@ -2,30 +2,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("main > section");
     const navLinks = document.querySelectorAll("nav ul li a");
 
-    window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 60) {
-                current = section.getAttribute("id");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                navLinks.forEach((link) => {
+                    link.classList.remove("active");
+                    if (link.getAttribute("href").substring(1) === entry.target.id) {
+                        link.classList.add("active");
+                    }
+                });
+            } else {
+                entry.target.classList.remove("active");
             }
         });
-        navLinks.forEach((link) => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").includes(current)) {
-                link.classList.add("active");
-            }
-        });
+    }, {
+        threshold: 0.5,
+    });
+
+    sections.forEach((section) => {
+        observer.observe(section);
     });
 
     navLinks.forEach((link) => {
-        link.addEventListener("click", function(e) {
+        link.addEventListener("click", (e) => {
             e.preventDefault();
-            const targetId = this.getAttribute("href").substring(1);
+            const targetId = link.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: "smooth"
+            targetSection.scrollIntoView({
+                behavior: "smooth",
             });
         });
     });

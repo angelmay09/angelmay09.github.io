@@ -9,33 +9,35 @@
   <body>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
+        <li><a href="#home" class="active">Home</a></li>
         <li><a href="#works">Works</a></li>
         <li><a href="#about">About Me</a></li>
         <li><a href="#contact">Contact Me</a></li>
       </ul>
     </nav>
     <main>
-      <section id="home" class="demo">
-        <div class="container">
-          <div class="home-section">
+      <section id="home" class="section">
+        <div class="container home-section">
             <div class="intro">
               <h4>
                 Crafting Digital Experiences <br />
                 with Passion and Precision
               </h4>
-              <div class="logo-container">
                 <h1>ANGEL MAY DALAWAMPU</h1>
+                <p>Creating innovative solutions and unique user experiences. Let’s transform your vision into reality.</p>
               </div>
             </div>
             <div class="intro-image">
               <img src="me.png" alt="profile" />
             </div>
+            
           </div>
-          <a href="#works"><span></span>Dive Into My Portfolio</a>
-        </div>
+          <a href="#works" class="scroll-down"><span></span>Dive Into My Portfolio</a>
+
+        
+        
       </section>
-      <section id="works" class="demo">
+      <section id="works" class="section">
         <div class="container">
           <h2>My Works</h2>
           <div class="work-item">
@@ -45,30 +47,29 @@
               >View on GitHub</a
             >
           </div>
-          <a href="#about"><span></span> </a>
+          <a href="#about" class="scroll-down"><span></span>Dive Into My Portfolio</a>
           <!-- Repeat for other works -->
         </div>
       </section>
-      <section id="about" class="demo">
+      <section id="about" class="section">
         <div class="container">
-          <h2>About Me</h2>
-          <div class="timeline">
-            <div class="event">
-              <p>Certificate/Award 1</p>
-              <span>Year</span>
+            <h2>About Me</h2>
+            <div class="timeline">
+                <div class="event">
+                    <p>Certificate/Award 1</p>
+                    <span>Year</span>
+                </div>
+                <!-- Repeat for other events -->
             </div>
-            <!-- Repeat for other events -->
-          </div>
-          <a href="#contact"><span></span> </a>
-        </div>
-      </section>
-      <section id="contact" class="demo">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <!-- Contact form or details -->
         </div>
     </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Contact information and form</p>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
 </html>

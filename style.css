@@ -20,7 +20,8 @@ nav {
     width: 100px;
     height: 100%;
     background: var(--color-primary);
-    padding-top: 20px;
+    padding-top: 0;
+    z-index: 10;
 }
 nav ul {
     list-style-type: none;
@@ -32,7 +33,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #3f4e4f;
-    font-size: 20px;
+    font-size: 16px;
     display: block;
     text-align: center;
     writing-mode: vertical-rl;
@@ -45,29 +46,30 @@ nav ul li a.active {
 }
 main {
     margin-left: 100px;
-    padding: 20px;
-}
-section {
-    height: 100vh;
     padding: 40px;
+    background: var(--color-primary);
+}
+.section {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
-.home-section {
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.home-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px 10px;
-}
-.container {
-    text-align: center;
-    color: #fff;
+    width: 100%;
 }
 .intro {
     flex: 1;
-    text-align: left;
-    padding-right: 20px;
     animation: fadeInLeft 1s ease-in-out;
 }
 .intro h4 {
@@ -77,63 +79,108 @@ section {
 }
 .intro h1 {
     font-size: 3em;
+    text-transform: uppercase;
     margin-bottom: 20px;
-    color: var(--highlight);
+    letter-spacing: -2px;
+    font-weight: bold;
+    color: var(--color-grey-1);
+    animation: clip-path-reveal 3s ease-in-out;
+}
+.intro p {
+    font-size: 1.2em;
+    color: var(--color-white);
 }
 .intro-image {
     flex: 1;
-    text-align: right;
+    text-align: center;
     animation: fadeInRight 1s ease-in-out;
 }
 .intro-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s;
+    transition: all 0.4s ease-in-out;
     filter: grayscale(100%);
 }
 .intro-image img:hover {
     transform: scale(1.05);
     filter: grayscale(0);
 }
-.work-item {
-    margin-bottom: 20px;
-}
-.work-item img {
-    width: 300px;
-    height: 200px;
-}
-.timeline {
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 2s ease-in-out infinite;
 }
-.event {
-    margin-bottom: 10px;
+.scroll-down span {
+    width: 24px;
+    height: 24px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(-45deg);
+    margin-right: 10px;
+    animation: sdb06 2s infinite;
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeInUp {
+    0%,
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes sdb06 {
+    0% {
+        transform: rotateY(0) rotateZ(-45deg) translate(0, 0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotateY(720deg)  rotateZ(-45deg) translate(-20px, 20px);
+        opacity: 0;
+    }
 }
 :root {
     --color-primary: #2c3639;
     --color-secondary: #a27b5c;
     --color-white: #dcd7c9;
     --color-black: #3f4e4f;
+    --color-grey0: #f8f8f8;
+    --color-grey-1: #dbe1e8;
+    --color-grey-2: #b2becd;
+    --color-grey-3: #6c7983;
+    --color-grey-4: #454e56;
+    --color-grey-5: #2a2e35;
+    --color-grey-6: #12181b;
     --highlight: #ff5733;
-}
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
