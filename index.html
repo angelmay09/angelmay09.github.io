@@ -1,75 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#works">Works</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-    </nav>
-    <main>
-      <section id="home" class="section">
-        <div class="container home-section">
-            <div class="intro">
-              <h4>
-                Crafting Digital Experiences <br />
-                with Passion and Precision
-              </h4>
-                <h1>ANGEL MAY DALAWAMPU</h1>
-                <p>Creating innovative solutions and unique user experiences. Let’s transform your vision into reality.</p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="home" class="section">
+      <div class="container home-section">
+        <div class="intro">
+          <h4>
+            Hey there! <br />
+            Let's Build Something Awesome
+          </h4>
+          <h1>ANGEL MAY DALAWAMPU</h1>
+          <p>I build, design, and debug digital experiences. <br />
+            From elegant front-end interfaces to seamless functionality, I turned ideas into reality. <br />
+            Let's make something amazing together!</p>
+        </div>
+      </div>
+      <div class="intro-image">
+        <img src="me.png" alt="profile" />
+      </div>
+
+      </div>
+      <a href="#works" class="scroll-down"><span></span>Dive Into My Portfolio</a>
+    </section>
+
+    <section id="works" class="section">
+      <div class="works-container">
+        <div class="works-left">
+          <div class="works-text">
+            <h2>A Collection of Things I've Built (and Broke, Then Fixed)</h2>
+            <p>Bringing ideas to life—one project at a time.</p>
+            <p>Here’s where I showcase my work. Each project comes with a story—how it started, the challenges I faced,
+              and the final solution. Click on any to dive deeper!</p>
+          </div>
+          <div class="project-group rounded-4 p-3">
+            <div class="project-icons d-flex justify-content-evenly ">
+              <img src="tireSure/tireSure.png" class="project-icon" alt="Project 1">
+              <img src="bookLink/bookLink.png" class="project-icon" alt="Project 2">
+              <img src="bookLink/3.png" class="project-icon" alt="Project 3">
+            </div>
+          </div>
+          <div class="project-description text-center mt-3">
+            <h3>Innovative Apps</h3>
+            <p>Crafting seamless user experiences with efficiency and creativity.</p>
+          </div>
+        </div>
+        <div class="works-right">
+          <div class="main-screen">
+            <img src="tireSure/wireFrames/1.png" class="wireframe" alt="Main Wireframe">
+          </div>
+          <div class="wireframe-scroll-container" data-folder="tireSure/wireFrames/">
+            <div class="wireframe-container">
+              <img src="tireSure/wireFrames/2.png" class="wireframe" alt="Wireframe 1">
+            </div>
+            <div class="wireframe-container">
+              <img src="tireSure/wireFrames/4.png" class="wireframe" alt="Wireframe 2">
+            </div>
+            <div class="wireframe-container">
+              <img src="tireSure/wireFrames/3.png" class="wireframe" alt="Wireframe 3">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="about-container">
+        <div class="about-intro">
+          <div class="intro-text">
+            <h1 class="animated-headline">More Than Just a Coder—A Problem Solver.</h1>
+            <p class="animated-text">
+              Hey! I’m <span class="highlight">Angel May Dalawampu</span>, a passionate developer who loves turning
+              complex problems into smooth, user-friendly experiences. My journey started with a simple "Hello, World!"
+              and evolved into building apps that make life easier (and maybe a little more fun). When I’m not coding,
+              you’ll find me gaming, reading tech blogs, or drinking too much coffee.
+            </p>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-line">
+            <div class="milestone">
+              <div class="milestone-icon">💼</div>
+              <div class="milestone-card">
+                <h3>Internship at Tech Innovators (2022)</h3>
+                <p>Worked on a cutting-edge AI project, learned Python and TensorFlow, and contributed to a team of 10
+                  developers.</p>
               </div>
             </div>
-            <div class="intro-image">
-              <img src="me.png" alt="profile" />
+            <div class="milestone">
+              <div class="milestone-icon">🏆</div>
+              <div class="milestone-card">
+                <h3>Received Best Developer Award (2023)</h3>
+                <p>Recognized for building an innovative app that improved user engagement by 40%.</p>
+              </div>
             </div>
-            
+            <div class="milestone">
+              <div class="milestone-icon">🚀</div>
+              <div class="milestone-card">
+                <h3>Major Project: TireSure App (2023)</h3>
+                <p>Built a mobile app for tire management, gaining 10,000+ users and optimizing performance by 30%.</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-icon">🎓</div>
+              <div class="milestone-card">
+                <h3>Earned AWS Certification (2024)</h3>
+                <p>Certified in cloud computing and architecture, enabling scalable and secure app deployments.</p>
+              </div>
+            </div>
           </div>
-          <a href="#works" class="scroll-down"><span></span>Dive Into My Portfolio</a>
 
-        
-        
-      </section>
-      <section id="works" class="section">
-        <div class="container">
-          <h2>My Works</h2>
-          <div class="work-item">
-            <img src="me.png" alt="Work 1" />
-            <p>Caption for work 1</p>
-            <a href="https://github.com/username/repo1" target="_blank"
-              >View on GitHub</a
-            >
-          </div>
-          <a href="#about" class="scroll-down"><span></span>Dive Into My Portfolio</a>
-          <!-- Repeat for other works -->
-        </div>
-      </section>
-      <section id="about" class="section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="timeline">
-                <div class="event">
-                    <p>Certificate/Award 1</p>
-                    <span>Year</span>
-                </div>
-                <!-- Repeat for other events -->
+          <div class="interests">
+            <h2 class="animated-headline">Beyond the Screen</h2>
+            <div class="interest-grid">
+              <div class="interest-item">
+                <div class="interest-icon">🎮</div>
+                <p>Gaming</p>
+              </div>
+              <div class="interest-item">
+                <div class="interest-icon">☕</div>
+                <p>Coffee Brewing</p>
+              </div>
+              <div class="interest-item">
+                <div class="interest-icon">📖</div>
+                <p>Tech Blogs</p>
+              </div>
+              <div class="interest-item">
+                <div class="interest-icon">💡</div>
+                <p>Experimenting with New Frameworks</p>
+              </div>
             </div>
+          </div>
         </div>
+
+
+      </div>
     </section>
+
     <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>Contact information and form</p>
+      <div class="container">
+        <div class="contact-container">
+          <div class="contact-heading text-center">
+            <h4>Let's Chat!</h4>
+            <h1>Got an idea? Need a dev? Just want to say hi?</h1>
+            <p>Whether it's a cool project, a freelance gig, or just tech talk—I'd love to hear from you!</p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-form">
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label"></label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"></label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label"></label>
+                  <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+              </form>
+            </div>
+
+            <div class="contact-links">
+              <div class="cv-download">
+                <h3>Download My CV</h3>
+                <a href="Dalawampu_Resume.pdf" download class="btn btn-outline-primary">
+                  <i class="fas fa-download"></i> Download CV
+                </a>
+              </div>
+              <div class="social-links">
+                <h3>Connect With Me</h3>
+                <ul>
+                  <li>
+                    <a href="mailto:angelmaydalawampu09@gmail.com" target="_blank" class="social-link">
+                      <i class="fas fa-envelope"></i> Gmail
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/angelmaydalawampu" target="_blank" class="social-link">
+                      <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/angelmay09" target="_blank" class="social-link">
+                      <i class="fab fa-github"></i> GitHub
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-</main>
-<script src="script.js"></script>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
