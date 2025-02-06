@@ -188,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "BookLink - Libary Management System",
             description: "BookLink was a project I developed as part of my NCIII Java course. My team and I conceptualized and decided to create a library management system with both admin and user-side functionalities. We used Java and MySQL to build the backend, ensuring smooth interaction between the two sides of the application. One of the key challenges we faced was syncing the data between the admin and user interfaces, ensuring both were updated in real-time. Through collaboration and persistence, we successfully overcame this obstacle, ultimately delivering a seamless system. The project was presented to our instructor, demonstrating our ability to work as a team and solve complex technical issues effectively.",
             wireframes: [
-                "bookLink/2.png",
-                "bookLink/3.png",
+                { src: "bookLink/2.png", alt: "BookLink Wireframe 1" },
+                  { src: "bookLink/3.png", alt: "BookLink Wireframe 2" },
                 "bookLink/4.png",
                 "bookLink/5.png",
                 "bookLink/6.png",
