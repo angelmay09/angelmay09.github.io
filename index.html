@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Portfolio | Angel May Dalawampu</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
 </head>
@@ -30,6 +30,7 @@
           <p>I build, design, and debug digital experiences. <br />
             From elegant front-end interfaces to seamless functionality, I turned ideas into reality. <br />
             Let's make something amazing together!</p>
+          <a href="#contact" class="hire-me-btn">Hire Me</a>
         </div>
       </div>
       <div class="intro-image">
@@ -37,7 +38,7 @@
       </div>
 
       </div>
-      <a href="#works" class="scroll-down"><span></span>Dive Into My Portfolio</a>
+      <a href="#works" class="scroll-down"><span></span></a>
     </section>
 
     <section id="works" class="section">
@@ -51,30 +52,22 @@
           </div>
           <div class="project-group rounded-4 p-3">
             <div class="project-icons d-flex justify-content-evenly ">
-              <img src="tireSure/tireSure.png" class="project-icon" alt="Project 1">
-              <img src="bookLink/bookLink.png" class="project-icon" alt="Project 2">
-              <img src="bookLink/3.png" class="project-icon" alt="Project 3">
+              <img src="tireSure/tireSure.png" class="project-icon" data-project="tireSure" alt="TireSure">
+              <img src="bookLink/bookLink.png" class="project-icon" data-project="bookLink" alt="BookLink">
+              <!-- <img src="bookLink/3.png" class="project-icon" alt="Project 3" data-project="project3"> -->
             </div>
           </div>
           <div class="project-description text-center mt-3">
-            <h3>Innovative Apps</h3>
-            <p>Crafting seamless user experiences with efficiency and creativity.</p>
+            <h3 id="project-title">Innovative Apps</h3>
+            <p id="project-description">Crafting seamless user experiences with efficiency and creativity.</p>
           </div>
         </div>
         <div class="works-right">
           <div class="main-screen">
-            <img src="tireSure/wireFrames/1.png" class="wireframe" alt="Main Wireframe">
+            <img src="" class="wireframe" alt="Main Wireframe" id="main-wireframe">
           </div>
-          <div class="wireframe-scroll-container" data-folder="tireSure/wireFrames/">
-            <div class="wireframe-container">
-              <img src="tireSure/wireFrames/2.png" class="wireframe" alt="Wireframe 1">
-            </div>
-            <div class="wireframe-container">
-              <img src="tireSure/wireFrames/4.png" class="wireframe" alt="Wireframe 2">
-            </div>
-            <div class="wireframe-container">
-              <img src="tireSure/wireFrames/3.png" class="wireframe" alt="Wireframe 3">
-            </div>
+          <div class="wireframe-scroll-container" id="wireframe-scroll-container">
+
           </div>
         </div>
       </div>
@@ -155,29 +148,29 @@
               <p>DOST - SEI Scholar (RA 7687)</p>
               <p>
                 <span class="cert-link" data-modal="bsu-diploma">*See Certificates*</span>
-              </p>              
+              </p>
             </div>
           </div>
         </div>
 
-      <!-- Modals for Certificates -->
-      <div id="nciii-cert" class="modal">
+        <!-- Modals for Certificates -->
+        <div id="nciii-cert" class="modal">
           <div class="modal-content">
-              <span class="close-modal">&times;</span>
-              <h2>Programming (Java) NCIII Certificate</h2>
-              <img src="certificates/NCIII.jpg" alt="NCIII Certificate">
-      </div>
-      </div>
-      
-      <div id="bsu-diploma" class="modal">
-          <div class="modal-content">
-              <span class="close-modal">&times;</span>
-              <h2>BS Computer Engineering Certificates</h2>
-                <img src="certificates/DIPLOMA.jpg" alt="BSU Diploma">
-                <img src="certificates/CUMLAUDE.png" alt="BSU Cum Laude">
-                <iframe src="certificates/Dalawampu_TOR.pdf" alt="BSU TOR"></iframe>
+            <span class="close-modal">&times;</span>
+            <h2>Programming (Java) NCIII Certificate</h2>
+            <img src="certificates/NCIII.jpg" alt="NCIII Certificate">
           </div>
-      </div>
+        </div>
+
+        <div id="bsu-diploma" class="modal">
+          <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>BS Computer Engineering Certificates</h2>
+            <img src="certificates/DIPLOMA.jpg" alt="BSU Diploma">
+            <img src="certificates/CUMLAUDE.png" alt="BSU Cum Laude">
+            <iframe src="certificates/Dalawampu_TOR.pdf" alt="BSU TOR"></iframe>
+          </div>
+        </div>
     </section>
 
     <section id="contact" class="section">
@@ -188,57 +181,38 @@
             <h1>Got an idea? Need a dev? Just want to say hi?</h1>
             <p>Whether it's a cool project, a freelance gig, or just tech talk—I'd love to hear from you!</p>
           </div>
-
-          <div class="contact-content">
-            <div class="contact-form">
-              <form id="contactForm">
-                <div class="mb-6">
-                  <label for="name" class="form-label"></label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                </div>
-                <div class="mb-6">
-                  <label for="email" class="form-label"></label>
-                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                </div>
-                <div class="mb-6">
-                  <label for="message" class="form-label"></label>
-                  <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"
-                    required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-              </form>
-            </div>
-
-            <div class="contact-links">
-              <div class="cv-download">
-                <h3>Download My CV</h3>
-                <a href="Dalawampu_Resume.pdf" download class="btn btn-outline-primary">
-                  <i class="fas fa-download"></i> Download CV
-                </a>
-              </div>
-              <div class="social-links">
-                <h3>Connect With Me</h3>
-                <ul>
-                  <li>
-                    <a href="mailto:angelmaydalawampu09@gmail.com" target="_blank" class="social-link">
-                      <i class="fas fa-envelope"></i> Gmail
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/angelmaydalawampu" target="_blank" class="social-link">
-                      <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/angelmay09" target="_blank" class="social-link">
-                      <i class="fab fa-github"></i> GitHub
-                    </a>
-                  </li>
-                </ul>
-              </div>
+          <div class="contact-links">
+            <div class="cv-download">
+              <a href="Dalawampu_Resume.pdf" download class="btn btn-outline-primary">
+                Download CV
+              </a>
             </div>
           </div>
-        </div>
+            <div class="social-links">
+              <h3>Connect With Me</h3>
+              <ul>
+                <li>
+                  <a href="mailto:angelmaydalawampu09@gmail.com" target="_blank" class="social-link">
+                    <img src="https://img.icons8.com/?size=100&id=d8Eu0SE2dR9b&format=png&color=FFFFFF" alt="Gmail Icon" class="social-icon"/>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/angelmaydalawampu" target="_blank" class="social-link">
+                    <img src="https://img.icons8.com/?size=100&id=84888&format=png&color=FFFFFF" alt="LinkedIn Icon" class="social-icon"/>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/angelmay09" target="_blank" class="social-link">
+                    <img src="https://img.icons8.com/?size=100&id=16318&format=png&color=FFFFFF" alt="GitHub Icon" class="social-icon"/>
+                </li>
+                <li>
+                  <a href="https://wa.me/+639194664158" target="_blank" class="social-link">
+                    <img src="https://img.icons8.com/?size=100&id=84937&format=png&color=FFFFFF" alt="Whatsapp Icon" class="social-icon"/>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
       </div>
     </section>
   </main>

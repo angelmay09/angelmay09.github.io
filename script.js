@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.style.display = "flex";
-                document.body.style.overflow = "hidden"; 
+                document.body.style.overflow = "hidden";
             }
         });
     });
@@ -162,4 +162,126 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    const projectIcons = document.querySelectorAll(".project-icon");
+    const mainWireframe = document.getElementById("main-wireframe");
+    const wireframeSContainer = document.getElementById("wireframe-scroll-container");
+    const projectTitle = document.getElementById("project-title");
+    const projectDescription = document.getElementById("project-description");
+
+    const projects = {
+        tireSure: {
+            mainImage: "tireSure/wireFrames/1.png",
+            title: "TireSure - Tire Monitoring Application",
+            description: "BookLink was a project I developed as part of my NCIII Java course. My team and I conceptualized and decided to create a library management system with both admin and user-side functionalities. We used Java and MySQL to build the application, ensuring smooth interaction between the two sides of the application.  One of the key challenges we faced was syncing the data between the admin and user interfaces, ensuring both were updated in real-time. Through collaboration and persistence, we successfully overcame this obstacle, ultimately delivering a seamless system. The project was presented to our instructor, demonstrating our ability to work as a team and solve complex technical issues effectively.",
+            wireframes: [
+                "tireSure/wireFrames/2.png",
+                "tireSure/wireFrames/4.png",
+                "tireSure/wireFrames/3.png",
+                "tireSure/wireFrames/5.png",
+                "tireSure/wireFrames/6.png",
+                "tireSure/wireFrames/7.png",
+                "tireSure/wireFrames/8.png",
+            ],
+        },
+        bookLink: {
+            mainImage: "bookLink/1.png",
+            title: "BookLink - Libary Management System",
+            description: "BookLink was a project I developed as part of my NCIII Java course. My team and I conceptualized and decided to create a library management system with both admin and user-side functionalities. We used Java and MySQL to build the backend, ensuring smooth interaction between the two sides of the application. One of the key challenges we faced was syncing the data between the admin and user interfaces, ensuring both were updated in real-time. Through collaboration and persistence, we successfully overcame this obstacle, ultimately delivering a seamless system. The project was presented to our instructor, demonstrating our ability to work as a team and solve complex technical issues effectively.",
+            wireframes: [
+                "bookLink/2.png",
+                "bookLink/3.png",
+                "bookLink/4.png",
+                "bookLink/5.png",
+                "bookLink/6.png",
+                "bookLink/7.png",
+                "bookLink/8.png",
+                "bookLink/9.png",
+                "bookLink/10.png",
+                "bookLink/11.png",
+                "bookLink/12.png",
+            ],
+        },
+        // project3: {
+        //   mainImage: "project3/wireFrames/1.png",
+        //   wireframes: [
+        //     "project3/wireFrames/2.png",
+        //     "project3/wireFrames/3.png",
+        //     "project3/wireFrames/4.png",
+        //   ],
+        // },
+    };
+    function updateWorksRight(project) {
+        mainWireframe.src = project.mainImage;
+        wireframeSContainer.innerHTML = "";
+        projectTitle.innerText = project.title;
+        projectDescription.innerText = project.description;
+
+        const wireframes = [...project.wireframes, ...project.wireframes]; // Duplicate wireframes for smooth looping
+        wireframes.forEach((wireframe) => {
+            const wireframeContainer = document.createElement("div");
+            wireframeContainer.classList.add("wireframe-container");
+            const img = document.createElement("img");
+            img.src = wireframe;
+            img.classList.add("wireframe");
+            wireframeContainer.appendChild(img);
+            wireframeSContainer.appendChild(wireframeContainer);
+        });
+        enableContinuousScroll();
+    }
+    function enableContinuousScroll() {
+        let scrollSpeed = 1;
+        let isUserScrolling = false;
+        let timeout;
+
+        function autoScroll() {
+            if (!isUserScrolling) {
+                wireframeSContainer.scrollTop += scrollSpeed;
+
+                // When reaching the end, smoothly reset to the beginning
+                if (wireframeSContainer.scrollTop >= wireframeSContainer.scrollHeight - wireframeSContainer.clientHeight) {
+                    wireframeSContainer.scrollTop = 0;
+                }
+            }
+
+            requestAnimationFrame(autoScroll);
+        }
+        wireframeSContainer.addEventListener("scroll", () => {
+            isUserScrolling = true;
+            clearTimeout(timeout); // Prevent multiple triggers
+    
+            // Restart auto-scroll after 2 seconds of inactivity
+            timeout = setTimeout(() => {
+                isUserScrolling = false;
+            }, 2000);
+        });
+        requestAnimationFrame(autoScroll);
+    }
+
+    function setActiveProjectIcon(activeIcon) {
+        projectIcons.forEach((icon) => {
+            icon.classList.remove("active"); // Remove active class from all icons
+        });
+        activeIcon.classList.add("active"); // Add active class to the clicked icon
+    }
+
+    projectIcons.forEach((icon) => {
+        icon.addEventListener("click", function () {
+            const projectName = this.getAttribute("data-project");
+            const projectData = projects[projectName];
+            if (projectData) {
+                updateWorksRight(projectData);
+                setActiveProjectIcon(this);
+            }
+        });
+    });
+
+    // Load the first project by default
+    if (projectIcons.length > 0) {
+        const defaultProject = projectIcons[0].getAttribute("data-project");
+        const defaultProjectData = projects[defaultProject];
+        if (defaultProjectData) {
+            updateWorksRight(defaultProjectData);
+            setActiveProjectIcon(projectIcons[0]);
+        }
+    }
 });

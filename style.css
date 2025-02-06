@@ -17,7 +17,7 @@ body {
 }
 
 body.modal-open {
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 nav {
@@ -62,11 +62,12 @@ main {
 .section {
     min-height: 100vh;
     display: flex;
+    margin-top: 50px;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: visible;
-    opacity: 0; 
+    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
@@ -80,6 +81,10 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 80px 20px;
+    ;
     width: 100%;
 }
 
@@ -107,6 +112,7 @@ main {
 .intro p {
     font-size: 1.2em;
     color: var(--color-white);
+    margin-bottom: 30px;
 }
 
 .intro-image {
@@ -130,13 +136,13 @@ main {
 .scroll-down {
     position: absolute;
     bottom: 20px;
-    left: 50%;
     transform: translateX(-50%);
     color: #fff;
     font-size: 20px;
     text-decoration: none;
     display: flex;
-    align-items: center;
+    justify-items: center;
+    align-items:normal;
     animation: fadeInUp 2s ease-in-out infinite;
 }
 
@@ -146,7 +152,6 @@ main {
     border-left: 1px solid #fff;
     border-bottom: 1px solid #fff;
     transform: rotate(-45deg);
-    margin-right: 10px;
     animation: sdb06 2s infinite;
 }
 
@@ -269,17 +274,40 @@ main {
     width: 60px;
     height: 60px;
     border-radius: 4px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease, border 0.2s ease;
+    cursor: pointer;
 }
+
+.project-icon.active {
+    transform: scale(1.1); /* Slightly enlarge the active icon */
+    border: 3px solid #3498db; /* Highlight active icon */
+    border-radius: 10px;
+  }
+  
+  .project-icon:active {
+    transform: scale(1.1); /* Keep scale when clicked */
+  }
 
 .project-icon:hover {
     transform: scale(1.5);
+    border: 2px solid var(--highlight); 
 }
 
 .project-description {
     margin-top: 20px;
     color: var(--color-white);
 }
+
+.project-description h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #a27b5c;
+  }
+  
+  .project-description p {
+    font-size: 1rem;
+  }
 
 .works-right {
     width: 60%;
@@ -301,9 +329,7 @@ main {
     max-width: 100%;
     max-height: 100%;
     opacity: 1;
-    /* Always visible */
     transform: translateY(0);
-    /* No animation */
 }
 
 .wireframe-scroll-container {
@@ -324,10 +350,14 @@ main {
     text-align: center;
     margin-bottom: 20px;
 }
-
+#wireframeSContainer {
+    scroll-behavior: smooth;
+}
 .wireframe {
     max-width: 100%;
     transform: translateY(20px);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -386,7 +416,7 @@ main {
     width: 4px;
     background: var(--highlight);
     transform: translateX(-50%);
-    height: 100%;
+    height: 90%;
     z-index: 0;
 }
 
@@ -402,10 +432,12 @@ main {
     transform: translateY(20px);
     transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
+
 .milestone.active {
     opacity: 1;
     transform: translateY(0);
 }
+
 .milestone:nth-child(odd) {
     flex-direction: row-reverse;
     text-align: right;
@@ -423,7 +455,7 @@ main {
 .milestone:nth-child(even) .milestone-card {
     margin-right: 58%;
 }
-    
+
 .milestone:nth-child(even) .milestone-icon {
     left: 45%;
     transform: translateX(-50%);
@@ -456,8 +488,9 @@ main {
     min-height: 150px;
     word-wrap: break-word;
 }
+
 .milestone-card p {
-    overflow-wrap: break-word;  /* Ensures long words wrap */
+    overflow-wrap: break-word;
 }
 
 .milestone-card:hover {
@@ -492,11 +525,15 @@ main {
     font-size: 2rem;
     margin-bottom: 10px;
 }
+
 .interest-item p {
     font-style: italic;
 }
-.timeline-container, .about-container {
-    overflow: visible !important;  /* Prevents cutting content */
+
+.timeline-container,
+.about-container {
+    overflow: visible !important;
+    /* Prevents cutting content */
 }
 
 .cert-link {
@@ -519,7 +556,7 @@ main {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 90vw; 
+    width: 90vw;
     height: 95vh;
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
@@ -532,7 +569,7 @@ main {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 75vw; 
+    width: 75vw;
     height: 85vh;
     overflow-y: auto;
     text-align: center;
@@ -591,10 +628,19 @@ main {
 /* Delay animations */
 .animated-text {
     animation-delay: 0.5s;
+    color: #dbe1e8;
 }
 
 .milestone-card {
     animation-delay: 0.3s;
+}
+
+.milestone-card p {
+    color: #d8c6b7;
+}
+
+.milestone-card h3 {
+    color: #dbb58d;
 }
 
 .milestone {
@@ -628,16 +674,34 @@ main {
         transform: scale(1);
     }
 }
-
+.hire-me-btn {
+    padding: 15px 30px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid var(--color-secondary);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .hire-me-btn:hover {
+    background: #ffc16f9e;
+  }
 /* Contact Section */
 .contact-container {
     padding: 60px 20px;
-    max-width: 1200px;
+    max-height: 40vh;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .contact-heading {
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .contact-heading h4 {
@@ -647,7 +711,7 @@ main {
 }
 
 .contact-heading h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: var(--color-grey-1);
     margin-bottom: 20px;
 }
@@ -655,57 +719,15 @@ main {
 .contact-heading p {
     font-size: 1.2rem;
     color: var(--color-white);
-}
-
-.contact-content {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.contact-form {
-    flex: 1;
-    min-width: 300px;
     
 }
 
-.contact-form .form-control {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: var(--color-white);
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.contact-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.contact-form .btn-primary {
-    background: var(--highlight);
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-.contact-form .btn-primary:hover {
-    background: #ff4500;
-}
-
 .contact-links {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.cv-download {
     text-align: center;
 }
 
-.cv-download h3 {
+.cv-download h3,
+.social-links h3 {
     font-size: 1.5rem;
     color: var(--color-grey-1);
     margin-bottom: 20px;
@@ -716,6 +738,7 @@ main {
     color: var(--highlight);
     padding: 10px 20px;
     font-size: 1rem;
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
@@ -724,19 +747,13 @@ main {
     color: var(--color-primary);
 }
 
-.social-links {
-    text-align: center;
-}
-
-.social-links h3 {
-    font-size: 1.5rem;
-    color: var(--color-grey-1);
-    margin-bottom: 20px;
-}
-
 .social-links ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .social-links ul li {
@@ -744,10 +761,7 @@ main {
 }
 
 .social-links ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    display: block;
     text-decoration: none;
     color: var(--color-white);
     font-size: 1.2rem;
@@ -759,5 +773,141 @@ main {
 }
 
 .social-links ul li a i {
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+/* Mobile view adjustments */
+@media screen and (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        background: var(--color-primary);
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        writing-mode: horizontal-tb;
+        transform: none;
+        font-size: 14px;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .home-container {
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 2em;
+    }
+
+    .intro p {
+        font-size: 1em;
+    }
+
+    .intro-image {
+        margin-top: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 100%;
+
+    }
+
+    .intro-image img {
+        width: 100%;
+        /* Ensure the image scales with the screen size */
+        height: auto;
+        max-width: 100%;
+        transition: all 0.4s ease-in-out;
+    }
+
+    .works-container {
+        width: 95%;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+    }
+
+    .works-left,
+    .works-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .about-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .timeline-line {
+        left: 5%;
+    }
+
+    .milestone-card {
+        width: 100%;
+        margin: 0;
+    }
+    .milestone:nth-child(odd) {
+        flex-direction:initial;
+        text-align: left;
+    }
+
+    .milestone:nth-child(odd) .milestone-card {
+        margin-left: 20%;
+    }
+
+    .milestone:nth-child(odd) .milestone-icon {
+        left: 12%;
+        transform: translateX(-50%);
+    }
+
+    .milestone:nth-child(even) .milestone-card {
+        margin-left: 20%;
+        margin-right: 0;
+    }
+    .milestone:nth-child(even) .milestone-icon {
+        left: 12%;
+        transform: translateX(-50%);
+    }
+
+    .project-group {
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .wireframe-scroll-container {
+        width: 100%;
+    }
+
+    .main-screen {
+        width: 100%;
+        padding-top: 5%;
+    }
+
+    .section {
+        width: 100%;
+        justify-content: center;
+    }
 }
