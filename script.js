@@ -6,39 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const milestones = document.querySelectorAll(".milestone");
     const contactForm = document.getElementById("contactForm");
 
-    // ==============================================
-    // 1. Handle Form Submission
-    // ==============================================
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            alert("Thank you for reaching out! I'll get back to you soon.");
-            contactForm.reset();
-        });
-    }
-
-    // ==============================================
-    // 2. Section Animations (Fade-in on Scroll)
-    // ==============================================
+    //  Section Animations (Fade-in on Scroll)
     const sectionObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("active"); // Add .active class for animation
+                    entry.target.classList.add("active"); 
                 } else {
-                    entry.target.classList.remove("active"); // Remove .active class
+                    entry.target.classList.remove("active"); 
                 }
             });
         },
-        { threshold: 0.3 } // Trigger when 30% of the section is visible
+        { threshold: 0.3 } 
     );
 
-    // Observe all sections
     sections.forEach((section) => sectionObserver.observe(section));
 
-    // ==============================================
-    // 3. Navigation Highlighting
-    // ==============================================
+    //  Navigation Highlighting
     const navObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
@@ -53,15 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.3 } // Trigger when 30% of the section is visible
+        { threshold: 0.3 } 
     );
 
-    // Observe all sections for navigation highlighting
     sections.forEach((section) => navObserver.observe(section));
 
-    // ==============================================
-    // 4. Smooth Scrolling for Navigation Links
-    // ==============================================
+    // Smooth Scrolling for Navigation Links
     navLinks.forEach((link) => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
@@ -74,9 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ==============================================
-    // 5. Milestone Animations (Fade-in on Scroll)
-    // ==============================================
+    // Milestone Animations (Fade-in on Scroll)
     const milestoneObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry, index) => {
@@ -84,19 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         entry.target.style.opacity = "1";
                         entry.target.style.transform = "translateY(0)";
-                    }, index * 300); // Staggered delay for each milestone
+                    }, index * 300); 
                 }
             });
         },
-        { threshold: 0.5 } // Trigger when 50% of the milestone is visible
+        { threshold: 0.5 } 
     );
 
-    // Observe all milestones
     milestones.forEach((milestone) => milestoneObserver.observe(milestone));
 
-    // ==============================================
-    // 6. Auto-Scroll for Wireframe Section
-    // ==============================================
+    // Auto-Scroll for Wireframe Section
     if (wireframeScrollContainer) {
         let scrollSpeed = 1;
         let scrollDelay = 20;
@@ -115,7 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         autoScroll();
 
-        // Pause auto-scroll on hover
         wireframeScrollContainer.addEventListener("mouseenter", () => {
             scrollSpeed = 0;
         });
@@ -125,12 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Get all buttons that open modals
     const links = document.querySelectorAll(".cert-link");
     const modals = document.querySelectorAll(".modal");
     const closeButtons = document.querySelectorAll(".close-modal");
 
-    // Open modal when a button is clicked
     links.forEach((link) => {
         link.addEventListener("click", () => {
             const modalId = link.getAttribute("data-modal");
@@ -142,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close modal when the close button is clicked
     closeButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const modal = button.closest(".modal");
@@ -153,7 +125,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Close modal when clicking outside the modal content
     modals.forEach((modal) => {
         modal.addEventListener("click", (e) => {
             if (e.target === modal) {
@@ -170,35 +141,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const projects = {
         tireSure: {
-            mainImage: "tireSure/wireFrames/1.png",
+            mainImage: "assets/tireSure/wireFrames/1.png",
             title: "TireSure - Tire Monitoring Application",
             description: "BookLink was a project I developed as part of my NCIII Java course. My team and I conceptualized and decided to create a library management system with both admin and user-side functionalities. We used Java and MySQL to build the application, ensuring smooth interaction between the two sides of the application.  One of the key challenges we faced was syncing the data between the admin and user interfaces, ensuring both were updated in real-time. Through collaboration and persistence, we successfully overcame this obstacle, ultimately delivering a seamless system. The project was presented to our instructor, demonstrating our ability to work as a team and solve complex technical issues effectively.",
             wireframes: [
-                "tireSure/wireFrames/2.png",
-                "tireSure/wireFrames/4.png",
-                "tireSure/wireFrames/3.png",
-                "tireSure/wireFrames/5.png",
-                "tireSure/wireFrames/6.png",
-                "tireSure/wireFrames/7.png",
-                "tireSure/wireFrames/8.png",
+                "assets/tireSure/wireFrames/2.png",
+                "assets/tireSure/wireFrames/4.png",
+                "assets/tireSure/wireFrames/3.png",
+                "assets/tireSure/wireFrames/5.png",
+                "assets/tireSure/wireFrames/6.png",
+                "assets/tireSure/wireFrames/7.png",
+                "assets/tireSure/wireFrames/8.png",
             ],
         },
         bookLink: {
-            mainImage: "bookLink/wireFrames/1.png",
+            mainImage: "assets/bookLink/wireFrames/1.png",
             title: "BookLink - Libary Management System",
             description: "BookLink was a project I developed as part of my NCIII Java course. My team and I conceptualized and decided to create a library management system with both admin and user-side functionalities. We used Java and MySQL to build the backend, ensuring smooth interaction between the two sides of the application. One of the key challenges we faced was syncing the data between the admin and user interfaces, ensuring both were updated in real-time. Through collaboration and persistence, we successfully overcame this obstacle, ultimately delivering a seamless system. The project was presented to our instructor, demonstrating our ability to work as a team and solve complex technical issues effectively.",
             wireframes: [
-                "bookLink/wireFrames/2.png",
-                "bookLink/wireFrames/3.png",
-                "bookLink/wireFrames/4.png",
-                "bookLink/wireFrames/5.png",
-                "bookLink/wireFrames/6.png",
-                "bookLink/wireFrames/7.png",
-                "bookLink/wireFrames/8.png",
-                "bookLink/wireFrames/9.png",
-                "bookLink/wireFrames/10.png",
-                "bookLink/wireFrames/11.png",
-                "bookLink/wireFrames/12.png",
+                "assets/bookLink/wireFrames/2.png",
+                "assets/bookLink/wireFrames/3.png",
+                "assets/bookLink/wireFrames/4.png",
+                "assets/bookLink/wireFrames/5.png",
+                "assets/bookLink/wireFrames/6.png",
+                "assets/bookLink/wireFrames/7.png",
+                "assets/bookLink/wireFrames/8.png",
+                "assets/bookLink/wireFrames/9.png",
+                "assets/bookLink/wireFrames/10.png",
+                "assets/bookLink/wireFrames/11.png",
+                "assets/bookLink/wireFrames/12.png",
             ],
         },
         // project3: {
@@ -216,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         projectTitle.innerText = project.title;
         projectDescription.innerText = project.description;
 
-        const wireframes = [...project.wireframes, ...project.wireframes]; // Duplicate wireframes for smooth looping
+        const wireframes = [...project.wireframes, ...project.wireframes]; 
         wireframes.forEach((wireframe) => {
             const wireframeContainer = document.createElement("div");
             wireframeContainer.classList.add("wireframe-container");
@@ -237,7 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!isUserScrolling) {
                 wireframeSContainer.scrollTop += scrollSpeed;
 
-                // When reaching the end, smoothly reset to the beginning
                 if (wireframeSContainer.scrollTop >= wireframeSContainer.scrollHeight - wireframeSContainer.clientHeight) {
                     wireframeSContainer.scrollTop = 0;
                 }
@@ -247,9 +217,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         wireframeSContainer.addEventListener("scroll", () => {
             isUserScrolling = true;
-            clearTimeout(timeout); // Prevent multiple triggers
+            clearTimeout(timeout);
     
-            // Restart auto-scroll after 2 seconds of inactivity
             timeout = setTimeout(() => {
                 isUserScrolling = false;
             }, 2000);
@@ -259,9 +228,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function setActiveProjectIcon(activeIcon) {
         projectIcons.forEach((icon) => {
-            icon.classList.remove("active"); // Remove active class from all icons
+            icon.classList.remove("active"); 
         });
-        activeIcon.classList.add("active"); // Add active class to the clicked icon
+        activeIcon.classList.add("active"); 
     }
 
     projectIcons.forEach((icon) => {
@@ -275,7 +244,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Load the first project by default
     if (projectIcons.length > 0) {
         const defaultProject = projectIcons[0].getAttribute("data-project");
         const defaultProjectData = projects[defaultProject];
